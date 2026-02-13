@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <section id="hero" className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-black text-white pt-20">
             {/* Background Elements - Minimal Noise/Grain could go here via CSS */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+            <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none bg-[url('/noise.svg')]"></div>
 
             <div className="container mx-auto px-6 z-10 relative">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
