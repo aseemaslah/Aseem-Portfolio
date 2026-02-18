@@ -20,28 +20,28 @@ const skills = [
 
 const Skills = () => {
     return (
-        <section id="skills" className="py-32 bg-black text-white relative overflow-hidden">
+        <section id="skills" className="py-24 md:py-32 bg-black text-white relative overflow-hidden">
             {/* Ambient Background Light */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mb-20"
+                    className="mb-16 md:mb-20"
                 >
-                    <h2 className="text-sm font-mono text-gray-500 tracking-[0.5em] mb-4 uppercase">Expertise</h2>
-                    <h3 className="text-5xl md:text-7xl font-semibold tracking-tighter">
+                    <h2 className="text-xs md:text-sm font-mono text-gray-500 tracking-[0.5em] mb-4 uppercase">Expertise</h2>
+                    <h3 className="text-4xl md:text-7xl font-semibold tracking-tighter leading-tight">
                         Digital <br /> <span className="text-gray-600">Toolkit.</span>
                     </h3>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-l border-gray-800">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 border-t border-l border-gray-800">
                     {skills.map((skill, index) => (
                         <div
                             key={index}
-                            className="group relative border-r border-b border-gray-800 p-10 flex flex-col items-center justify-center gap-6 hover:bg-gray-900/30 transition-colors duration-500"
+                            className="group relative border-r border-b border-gray-800 p-8 md:p-10 flex flex-col items-center justify-center gap-4 md:gap-6 hover:bg-gray-900/30 transition-colors duration-500"
                         >
                             <div
                                 className="text-gray-500 group-hover:text-white transition-all duration-500 filter grayscale group-hover:grayscale-0 transform group-hover:scale-110"
@@ -51,7 +51,7 @@ const Skills = () => {
                                 </span>
                             </div>
 
-                            <span className="text-sm font-medium text-gray-500 group-hover:text-gray-300 tracking-wider transition-colors duration-500">
+                            <span className="text-xs md:text-sm font-medium text-gray-500 group-hover:text-gray-300 tracking-wider transition-colors duration-500 text-center">
                                 {skill.name}
                             </span>
 
@@ -63,6 +63,7 @@ const Skills = () => {
                 </div>
             </div>
         </section>
+
     );
 };
 

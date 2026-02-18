@@ -4,13 +4,13 @@ import { Mail, ArrowRight, Github, Linkedin, Instagram } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <section id="contact" className="py-32 bg-black text-white relative overflow-hidden">
-            {/* Large background text for depth */}
-            <div className="absolute bottom-0 left-0 text-[12rem] md:text-[20rem] font-bold text-gray-800/5 leading-none pointer-events-none select-none -translate-x-10 translate-y-20">
+        <section id="contact" className="py-24 md:py-32 bg-black text-white relative overflow-hidden">
+            {/* Large background text - reduced size and opacity for mobile */}
+            <div className="absolute bottom-0 left-0 text-[25vw] md:text-[20rem] font-bold text-gray-800/5 leading-none pointer-events-none select-none -translate-x-10 translate-y-10 md:translate-y-20">
                 HIRE
             </div>
 
-            <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row justify-between items-start gap-20">
+            <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row justify-between items-start gap-16 md:gap-20">
 
                 {/* Left Side: Headline & Links */}
                 <div className="lg:w-1/2">
@@ -19,19 +19,19 @@ const Contact = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 max-w-2xl">
+                        <h2 className="text-[12vw] md:text-8xl font-black tracking-tighter mb-8 max-w-2xl leading-none">
                             LET'S WORK <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">TOGETHER.</span>
                         </h2>
 
-                        <p className="text-xl text-gray-400 mb-12 max-w-md leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-md leading-relaxed">
                             Have a project in mind? I'm currently open for new opportunities. Let's create something exceptional.
                         </p>
 
                         <div className="flex flex-col gap-6 mb-12">
-                            <a href="mailto:aseemaslah4508@gmail.com" className="flex items-center gap-4 text-2xl font-light hover:text-blue-500 transition-colors group">
-                                <div className="p-4 rounded-full border border-gray-800 group-hover:border-blue-500 transition-colors">
-                                    <Mail size={24} />
+                            <a href="mailto:aseemaslah4508@gmail.com" className="flex items-center gap-4 text-xl md:text-2xl font-light hover:text-blue-500 transition-colors group break-all md:break-normal">
+                                <div className="p-3 md:p-4 rounded-full border border-gray-800 group-hover:border-blue-500 transition-colors shrink-0">
+                                    <Mail size={20} className="md:w-6 md:h-6" />
                                 </div>
                                 aseemaslah4508@gmail.com
                             </a>
@@ -64,7 +64,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="space-y-8"
+                        className="space-y-10"
                         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd3XMNSJtL7B4Max8yUqRv7v0rjmdRiEpc2i_TP7CL4IcWmVQ/formResponse"
                         method="POST"
                         target="_blank"
@@ -74,13 +74,13 @@ const Contact = () => {
                                 type="text"
                                 id="name"
                                 name="entry.181621641"
-                                className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:outline-none focus:border-white transition-colors peer"
+                                className="w-full bg-transparent border-b border-gray-700 py-4 text-lg md:text-xl focus:outline-none focus:border-white transition-colors peer"
                                 placeholder=" "
                                 required
                             />
                             <label
                                 htmlFor="name"
-                                className="absolute left-0 top-4 text-gray-500 text-xl transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-gray-400 peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-400 pointer-events-none"
+                                className="absolute left-0 top-4 text-gray-500 text-lg md:text-xl transition-all peer-focus:-top-6 peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-gray-400 peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs md:peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-400 pointer-events-none"
                             >
                                 What's your name?
                             </label>
@@ -91,13 +91,13 @@ const Contact = () => {
                                 type="email"
                                 id="email"
                                 name="entry.1593222259"
-                                className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:outline-none focus:border-white transition-colors peer"
+                                className="w-full bg-transparent border-b border-gray-700 py-4 text-lg md:text-xl focus:outline-none focus:border-white transition-colors peer"
                                 placeholder=" "
                                 required
                             />
                             <label
                                 htmlFor="email"
-                                className="absolute left-0 top-4 text-gray-500 text-xl transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-gray-400 peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-400 pointer-events-none"
+                                className="absolute left-0 top-4 text-gray-500 text-lg md:text-xl transition-all peer-focus:-top-6 peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-gray-400 peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs md:peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-400 pointer-events-none"
                             >
                                 Your email address
                             </label>
@@ -108,13 +108,13 @@ const Contact = () => {
                                 id="message"
                                 name="entry.1243622484"
                                 rows="4"
-                                className="w-full bg-transparent border-b border-gray-700 py-4 text-xl focus:outline-none focus:border-white transition-colors peer resize-none"
+                                className="w-full bg-transparent border-b border-gray-700 py-4 text-lg md:text-xl focus:outline-none focus:border-white transition-colors peer resize-none"
                                 placeholder=" "
                                 required
                             ></textarea>
                             <label
                                 htmlFor="message"
-                                className="absolute left-0 top-4 text-gray-500 text-xl transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-gray-400 peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-400 pointer-events-none"
+                                className="absolute left-0 top-4 text-gray-500 text-lg md:text-xl transition-all peer-focus:-top-6 peer-focus:text-xs md:peer-focus:text-sm peer-focus:text-gray-400 peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-xs md:peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-gray-400 pointer-events-none"
                             >
                                 Tell me about your project
                             </label>
@@ -124,14 +124,15 @@ const Contact = () => {
                             type="submit"
                             className="group flex items-center justify-between w-full py-6 mt-8 border-b border-white hover:bg-white hover:text-black transition-all duration-300"
                         >
-                            <span className="text-2xl font-light tracking-wide">SEND MESSAGE</span>
-                            <ArrowRight className="transform group-hover:translate-x-2 transition-transform duration-300" size={32} />
+                            <span className="text-xl md:text-2xl font-light tracking-wide uppercase">Send Message</span>
+                            <ArrowRight className="transform group-hover:translate-x-2 transition-transform duration-300" size={24} />
                         </button>
                     </motion.form>
                 </div>
 
             </div>
         </section>
+
     );
 };
 

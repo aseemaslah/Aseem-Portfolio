@@ -14,7 +14,7 @@ import Marquee from './components/Marquee'; // Assuming Marquee component create
 function App() {
   return (
     <ReactLenis root>
-      <main className="bg-black min-h-screen text-white selection:bg-white selection:text-black cursor-none">
+      <main className="bg-black min-h-screen text-white selection:bg-white selection:text-black lg:cursor-none">
         <div className="noise-overlay"></div>
         <Cursor />
         <Navbar />

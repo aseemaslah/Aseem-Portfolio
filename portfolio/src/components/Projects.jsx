@@ -41,13 +41,13 @@ const Projects = () => {
     });
 
     return (
-        <section ref={targetRef} id="projects" className="py-32 bg-black text-white px-6">
+        <section ref={targetRef} id="projects" className="py-24 md:py-32 bg-black text-white px-6">
             <div className="container mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-6xl md:text-8xl font-black mb-24 tracking-tighter"
+                    className="text-[12vw] md:text-8xl font-black mb-16 md:mb-24 tracking-tighter leading-none"
                 >
                     SELECTED <br /> <span className="text-gray-600">WORKS</span>
                 </motion.h2>
@@ -63,7 +63,7 @@ const Projects = () => {
                             className={`group flex flex-col ${index % 2 === 1 ? 'md:mt-32' : ''}`}
                         >
                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="block overflow-hidden mb-6 aspect-[4/3] rounded-lg relative">
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 transition-all duration-500"></div>
+                                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
                                 <motion.img
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
@@ -75,10 +75,10 @@ const Projects = () => {
 
                             <div className="flex justify-between items-start border-t border-gray-800 pt-6">
                                 <div>
-                                    <h3 className="text-3xl font-bold mb-2 group-hover:text-blue-500 transition-colors">{project.title}</h3>
-                                    <p className="text-gray-400 text-lg mb-4">{project.description}</p>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-amber-500 transition-colors">{project.title}</h3>
+                                    <p className="text-gray-400 text-base md:text-lg mb-4">{project.description}</p>
                                 </div>
-                                <div className="hidden md:flex flex-col items-end gap-2 text-sm font-mono text-gray-500">
+                                <div className="hidden sm:flex flex-col items-end gap-2 text-[10px] md:text-xs font-mono text-gray-500">
                                     {project.tags.map(tag => <span key={tag}>/{tag}</span>)}
                                 </div>
                             </div>
@@ -87,6 +87,7 @@ const Projects = () => {
                 </div>
             </div>
         </section>
+
     );
 };
 
