@@ -41,7 +41,7 @@ function ParallaxText({ children, baseVelocity = 100 }) {
 
     return (
         <div className="parallax overflow-hidden tracking-tighter leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
-            <motion.div className="scroller font-black uppercase text-6xl md:text-9xl flex whitespace-nowrap flex-nowrap" style={{ x }}>
+            <motion.div className="scroller font-black uppercase text-4xl sm:text-6xl md:text-9xl flex whitespace-nowrap flex-nowrap" style={{ x }}>
                 <span className="block mr-8">{children} </span>
                 <span className="block mr-8">{children} </span>
                 <span className="block mr-8">{children} </span>

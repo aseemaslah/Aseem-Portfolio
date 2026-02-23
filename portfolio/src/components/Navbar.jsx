@@ -26,9 +26,10 @@ const Navbar = () => {
 
     const links = [
         { name: 'Index', href: '#hero' },
-        { name: 'Work', href: '#projects' },
-        { name: 'Expertise', href: '#skills' },
         { name: 'About', href: '#about' },
+        { name: 'Services', href: '#services' },
+        { name: 'Skills', href: '#skills' },
+        { name: 'Work', href: '#projects' },
         { name: 'Contact', href: '#contact' }
     ];
 
@@ -66,11 +67,11 @@ const Navbar = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-0 left-0 w-full z-50 px-6 py-4 md:py-6 flex justify-between items-center mix-blend-difference text-white"
+            className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4 md:py-6 flex justify-between items-center mix-blend-difference text-white"
         >
             {/* Logo Area */}
             <a href="#" className="pointer-events-auto group z-50 relative">
-                <span className="text-xl md:text-2xl font-bold tracking-tighter block group-hover:scale-105 transition-transform origin-left">
+                <span className="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter block group-hover:scale-105 transition-transform origin-left leading-[0.9]">
                     ASEEM<br />ASLAH
                 </span>
                 <span className="text-[10px] md:text-xs font-mono opacity-50 block mt-1">© {new Date().getFullYear()}</span>
@@ -121,7 +122,7 @@ const Navbar = () => {
                                 custom={i}
                                 variants={linkVariants}
                                 onClick={() => setIsOpen(false)}
-                                className="text-4xl font-black uppercase tracking-tighter hover:text-gray-400 transition-colors"
+                                className="text-3xl sm:text-4xl font-black uppercase tracking-tighter hover:text-gray-400 transition-colors"
                             >
                                 {link.name}
                             </motion.a>

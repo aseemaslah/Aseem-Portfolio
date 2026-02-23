@@ -9,7 +9,8 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
-import Marquee from './components/Marquee'; // Assuming Marquee component created
+import Marquee from './components/Marquee';
+import Services from './components/Services';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Hero />
         <Marquee />
         <About />
+        <Services />
         <Skills />
         <Projects />
         <Contact />
