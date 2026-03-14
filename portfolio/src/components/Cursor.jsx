@@ -1,54 +1,65 @@
-
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const Cursor = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const cursorX = useMotionValue(-100);
+    const cursorY = useMotionValue(-100);
+
+    // Ultra smooth awwwards-style spring math
+    const springConfig = { damping: 30, stiffness: 250, mass: 0.1 };
+    const cursorXSpring = useSpring(cursorX, springConfig);
+    const cursorYSpring = useSpring(cursorY, springConfig);
+
+    const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const mouseMove = (e) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
+        const moveCursor = (e) => {
+            cursorX.set(e.clientX - 16); // Center the 32px cursor
+            cursorY.set(e.clientY - 16);
             if (!isVisible) setIsVisible(true);
         };
 
         const handleMouseEnter = () => setIsVisible(true);
         const handleMouseLeave = () => setIsVisible(false);
 
-        window.addEventListener("mousemove", mouseMove);
+        // Detect hovering over clickable elements
+        const handleMouseOver = (e) => {
+            const isClickable = e.target.closest('a, button, input, textarea, select, [role="button"]');
+            setIsHovering(!!isClickable);
+        };
+
+        window.addEventListener("mousemove", moveCursor);
         document.addEventListener("mouseenter", handleMouseEnter);
         document.addEventListener("mouseleave", handleMouseLeave);
+        document.addEventListener("mouseover", handleMouseOver);
 
         return () => {
-            window.removeEventListener("mousemove", mouseMove);
+            window.removeEventListener("mousemove", moveCursor);
             document.removeEventListener("mouseenter", handleMouseEnter);
             document.removeEventListener("mouseleave", handleMouseLeave);
+            document.removeEventListener("mouseover", handleMouseOver);
         };
-    }, [isVisible]);
-
-    const variants = {
-        default: {
-            x: mousePosition.x - 16,
-            y: mousePosition.y - 16,
-            opacity: isVisible ? 1 : 0,
-            scale: isVisible ? 1 : 0,
-        }
-    };
+    }, [cursorX, cursorY, isVisible]);
 
     return (
         <motion.div
-            className='hidden lg:block cursor fixed top-0 left-0 w-8 h-8 rounded-full border border-white pointer-events-none z-[9999] mix-blend-difference'
-            variants={variants}
-            animate="default"
-            transition={{
-                type: "spring",
-                stiffness: 700,
-                damping: 40,
-                mass: 0.5
+            className='hidden lg:flex justify-center items-center fixed top-0 left-0 rounded-full pointer-events-none z-[10000]'
+            style={{
+                x: cursorXSpring,
+                y: cursorYSpring,
+                opacity: isVisible ? 1 : 0,
+                width: 32,
+                height: 32,
+                backgroundColor: 'white',
+                mixBlendMode: 'difference' // The key to the premium look
             }}
+            animate={{
+                scale: isHovering ? 2.5 : 1,
+            }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
         />
     );
 };
-
 
 export default Cursor;
