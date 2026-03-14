@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense, lazy } from 'react';
 import {
     SiMongodb, SiExpress, SiAngular, SiNodedotjs,
     SiJavascript, SiTypescript, SiHtml5, SiCss3,
     SiGit, SiBootstrap
 } from 'react-icons/si';
-import Skills3D from './Skills3D';
+const Skills3D = lazy(() => import('./Skills3D'));
 import Magnetic from './Magnetic';
 
 const skills = [
@@ -63,7 +63,9 @@ const Skills = () => {
 
             {/* Ambient Background Light */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] md:w-[800px] h-[300px] sm:h-[500px] md:h-[800px] bg-sky-600/10 blur-[180px] rounded-full pointer-events-none z-0 mix-blend-screen"></div>
-            <Skills3D />
+            <Suspense fallback={null}>
+                <Skills3D />
+            </Suspense>
 
             <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
                 <motion.div

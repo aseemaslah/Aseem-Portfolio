@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Magnetic from './Magnetic';
+import TimeDisplay from './TimeDisplay';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -11,19 +12,7 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
-
-        const updateTime = () => {
-            const now = new Date();
-            // Force precise IST formatting
-            setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kolkata' }).toUpperCase());
-        };
-        updateTime();
-        const timer = setInterval(updateTime, 1000);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            clearInterval(timer);
-        }
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const links = [
@@ -108,10 +97,7 @@ const Navbar = () => {
                             <span className="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 animate-ping"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500 shadow-[0_0_10px_#0ea5e9]"></span>
                         </div>
-                        <span className="text-xs font-mono tracking-widest text-gray-300 group-hover:text-white transition-colors">
-                            {time || '...'}
-                            <span className="text-sky-500/70 ml-1">IST</span>
-                        </span>
+                        <TimeDisplay />
                     </div>
                 </Magnetic>
             </div>
@@ -163,7 +149,7 @@ const Navbar = () => {
                         >
                             <div className="flex items-center gap-3 text-xs font-mono px-6 py-3 rounded-full border border-white/10 bg-white/5 shadow-inner">
                                 <div className="w-1.5 h-1.5 rounded-full bg-sky-400 shadow-[0_0_8px_#0ea5e9] animate-pulse"></div>
-                                <span className="opacity-80 text-gray-200">{time} IST</span>
+                                <TimeDisplay />
                             </div>
                             <div className="flex gap-8">
                                 <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-mono tracking-widest">GH</a>

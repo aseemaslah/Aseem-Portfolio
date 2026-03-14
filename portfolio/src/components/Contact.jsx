@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense, lazy } from 'react';
 import { Mail, ArrowRight, Github, Linkedin, Instagram } from 'lucide-react';
-import Contact3D from './Contact3D';
+const Contact3D = lazy(() => import('./Contact3D'));
 import Magnetic from './Magnetic';
 
 const Contact = () => {
@@ -16,7 +16,9 @@ const Contact = () => {
 
     return (
         <section ref={sectionRef} id="contact" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white relative overflow-hidden">
-            <Contact3D />
+            <Suspense fallback={null}>
+                <Contact3D />
+            </Suspense>
 
             {/* Animated Ambient Light */}
             <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen z-0"></div>

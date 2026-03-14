@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Torus, Octahedron, Environment } from '@react-three/drei';
 import * as THREE from 'three';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 function ProjectsScene() {
     const groupRef = useRef();
@@ -10,12 +11,14 @@ function ProjectsScene() {
         const mouseX = state.pointer.x;
         const mouseY = state.pointer.y;
 
-        groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, mouseY * 0.2, 0.05);
-        groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, mouseX * 0.2, 0.05);
+        if (groupRef.current) {
+            groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, mouseY * 0.2, 0.05);
+            groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, mouseX * 0.2, 0.05);
 
-        const scrollY = window.scrollY;
-        // Adjust baseline based on approximate scroll position of Projects section
-        groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, -(scrollY - 2000) * 0.002, 0.05);
+            const scrollY = window.scrollY;
+            // Adjust baseline based on approximate scroll position of Projects section
+            groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, -(scrollY - 2000) * 0.002, 0.05);
+        }
     });
 
     return (
@@ -45,9 +48,17 @@ function ProjectsScene() {
 }
 
 export default function Projects3D() {
+    const isDesktop = useMediaQuery('(min-width: 1024px)');
+
+    if (!isDesktop) return null;
+
     return (
         <div className="w-full h-full absolute inset-0 z-0 pointer-events-none opacity-20">
-            <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+            <Canvas 
+                camera={{ position: [0, 0, 10], fov: 50 }}
+                dpr={[1, 2]}
+                gl={{ antialias: false, powerPreference: "high-performance" }}
+            >
                 <ambientLight intensity={0.2} />
                 <directionalLight position={[10, 10, 10]} intensity={1} />
                 <ProjectsScene />

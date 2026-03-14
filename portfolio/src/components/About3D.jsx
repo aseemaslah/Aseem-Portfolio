@@ -2,19 +2,25 @@ import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Environment } from '@react-three/drei';
 import * as THREE from 'three';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 function AboutScene() {
+    // ... (rest of Scene remains the same)
     const groupRef = useRef();
 
     useFrame((state) => {
         const mouseX = state.pointer.x;
         const mouseY = state.pointer.y;
 
-        groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, mouseY * 0.5, 0.05);
-        groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, mouseX * 0.5, 0.05);
+        if (groupRef.current) {
+            groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, mouseY * 0.5, 0.05);
+            groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, mouseX * 0.5, 0.05);
+        }
 
         const scrollY = window.scrollY;
-        groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, (scrollY - 500) * -0.001, 0.05);
+        if (groupRef.current) {
+            groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, (scrollY - 500) * -0.001, 0.05);
+        }
     });
 
     return (
@@ -47,9 +53,17 @@ function AboutScene() {
 }
 
 export default function About3D() {
+    const isDesktop = useMediaQuery('(min-width: 1024px)');
+
+    if (!isDesktop) return null;
+
     return (
         <div className="w-full h-full absolute inset-0 pointer-events-none opacity-30 z-0 overflow-hidden">
-            <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+            <Canvas 
+                camera={{ position: [0, 0, 5], fov: 45 }}
+                dpr={[1, 2]}
+                gl={{ antialias: false, powerPreference: "high-performance" }}
+            >
                 <ambientLight intensity={0.5} />
                 <directionalLight position={[10, 10, 10]} intensity={1} />
                 <AboutScene />

@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, Suspense, lazy } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Projects3D from './Projects3D';
+const Projects3D = lazy(() => import('./Projects3D'));
 
 const projects = [
     {
@@ -8,28 +8,28 @@ const projects = [
         description: "Full-featured online store.",
         tags: ["MEAN Stack", "Angular", "Node.js"],
         link: "https://github.com/aseemaslah/E-commerce-App",
-        image: "/projects/ecommerce.jpg"
+        image: "/projects/ecommerce.webp"
     },
     {
         title: "Student Management",
         description: "Efficient record administration.",
         tags: ["Angular", "Typescript", "Express"],
         link: "https://github.com/aseemaslah/Student-Managment",
-        image: "/projects/student.jpg"
+        image: "/projects/student.webp"
     },
     {
         title: "Hasoon Trading",
         description: "Business & Product showcase.",
         tags: ["Web Dev", "Frontend"],
         link: "https://github.com/aseemaslah/HasoonGeneralTrading",
-        image: "/projects/trading.jpg"
+        image: "/projects/trading.webp"
     },
     {
         title: "Portfolio Website",
         description: "Personal design showcase.",
         tags: ["React", "Vite", "Tailwind"],
         link: "https://github.com/aseemaslah/portfolio",
-        image: "/projects/portfolio.jpg"
+        image: "/projects/portfolio.webp"
     }
 ];
 
@@ -49,7 +49,9 @@ const Projects = () => {
             <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-sky-600/10 blur-[200px] rounded-full mix-blend-screen pointer-events-none"></div>
             <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-purple-600/10 blur-[200px] rounded-full mix-blend-screen pointer-events-none"></div>
 
-            <Projects3D />
+            <Suspense fallback={null}>
+                <Projects3D />
+            </Suspense>
             <div className="container mx-auto relative z-10 w-full">
                 <motion.h2
                     style={{ y: yTitle, opacity: opacityTitle }}
@@ -75,6 +77,8 @@ const Projects = () => {
                                     transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
                                     src={project.image}
                                     alt={project.title}
+                                    loading="lazy"
+                                    decoding="async"
                                     className="object-cover w-full h-full grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 blur-[1px] group-hover:blur-0"
                                 />
 

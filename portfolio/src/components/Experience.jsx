@@ -122,8 +122,8 @@ const Experience = () => {
                                     {/* Glow behind node */}
                                     <div className="absolute -left-[31px] md:-left-[51px] top-10 w-5 h-5 rounded-full bg-sky-400 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-screen"></div>
 
-                                    <div className="flex flex-col xl:flex-row xl:items-baseline gap-3 xl:gap-8 mb-6">
-                                        <span className="text-xs sm:text-sm font-mono tracking-widest text-sky-400 xl:w-40 shrink-0 uppercase">
+                                    <div className="flex flex-col lg:flex-row lg:items-baseline gap-3 lg:gap-8 mb-6">
+                                        <span className="text-xs sm:text-sm font-mono tracking-widest text-sky-400 lg:w-32 xl:w-40 shrink-0 uppercase">
                                             {exp.year}
                                         </span>
                                         <h4 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-sky-300 group-hover:to-indigo-400 transition-colors duration-500">
@@ -131,14 +131,14 @@ const Experience = () => {
                                         </h4>
                                     </div>
 
-                                    <div className="xl:ml-48">
-                                        <span className="inline-block text-[10px] sm:text-xs font-mono uppercase tracking-wider bg-white/5 border border-white/10 text-gray-300 px-4 py-1.5 mb-6 rounded-full group-hover:border-sky-500/50 group-hover:bg-sky-500/10 group-hover:text-sky-200 transition-colors duration-500 shadow-inner">
-                                            {exp.company}
-                                        </span>
-                                        <p className="text-gray-400 font-light text-sm sm:text-lg md:text-xl leading-relaxed max-w-2xl group-hover:text-gray-200 transition-colors duration-500">
-                                            {exp.description}
-                                        </p>
-                                    </div>
+                                     <div className="lg:ml-32 xl:ml-48">
+                                         <span className="inline-block text-[10px] sm:text-xs font-mono uppercase tracking-wider bg-white/5 border border-white/10 text-gray-300 px-4 py-1.5 mb-6 rounded-full group-hover:border-sky-500/50 group-hover:bg-sky-500/10 group-hover:text-sky-200 transition-colors duration-500 shadow-inner">
+                                             {exp.company}
+                                         </span>
+                                         <p className="text-gray-400 font-light text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl group-hover:text-gray-200 transition-colors duration-500">
+                                             {exp.description}
+                                         </p>
+                                     </div>
 
                                     {/* Subtle gradient accent on hover at bottom */}
                                     <div className="absolute bottom-0 left-0 w-0 h-[3px] bg-gradient-to-r from-sky-400 via-indigo-500 to-transparent group-hover:w-full transition-all duration-1000 opacity-0 group-hover:opacity-100 rounded-b-3xl"></div>

@@ -10,14 +10,13 @@ const Preloader = ({ onComplete }) => {
             setProgress(prev => {
                 if (prev >= 100) {
                     clearInterval(interval);
-                    // Start fading out shortly after 100%
-                    setTimeout(() => onComplete(), 400);
+                    setTimeout(() => onComplete(), 100); // Reduced delay
                     return 100;
                 }
-                const increment = Math.floor(Math.random() * 20) + 5;
+                const increment = Math.floor(Math.random() * 30) + 15; // Faster increment
                 return Math.min(prev + increment, 100);
             });
-        }, 100);
+        }, 40); // Faster interval
 
         return () => clearInterval(interval);
     }, [onComplete]);

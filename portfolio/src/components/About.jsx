@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { useRef } from 'react';
-import About3D from './About3D';
+import { useRef, useEffect, Suspense, lazy } from 'react';
+const About3D = lazy(() => import('./About3D'));
 import Magnetic from './Magnetic';
 
 // Word animation
@@ -29,9 +29,14 @@ const About = () => {
     const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
+    const rectRef = useRef(null);
+    
     const handleMouseMove = (e) => {
         if (!imageRef.current) return;
-        const rect = imageRef.current.getBoundingClientRect();
+        if (!rectRef.current) {
+            rectRef.current = imageRef.current.getBoundingClientRect();
+        }
+        const rect = rectRef.current;
         const width = rect.width;
         const height = rect.height;
         const mouseX = e.clientX - rect.left;
@@ -41,6 +46,17 @@ const About = () => {
         x.set(xPct);
         y.set(yPct);
     };
+
+    // Reset rect on scroll/resize for accuracy
+    useEffect(() => {
+        const resetRect = () => { rectRef.current = null; };
+        window.addEventListener('scroll', resetRect);
+        window.addEventListener('resize', resetRect);
+        return () => {
+            window.removeEventListener('scroll', resetRect);
+            window.removeEventListener('resize', resetRect);
+        };
+    }, []);
 
     const handleMouseLeave = () => {
         x.set(0);
@@ -81,7 +97,9 @@ const About = () => {
                 style={{ y: yBackground, opacity: opacityBackground }}
                 className="absolute top-0 right-0 w-1/2 h-[150%] bg-gradient-to-l from-sky-900/20 to-transparent pointer-events-none"
             />
-            <About3D />
+            <Suspense fallback={null}>
+                <About3D />
+            </Suspense>
 
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
@@ -114,7 +132,7 @@ const About = () => {
                                 className="w-full h-full rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative z-10 bg-black/40 backdrop-blur-md"
                             >
                                 <img 
-                                    src="/profile.jpg" 
+                                    src="/profile.webp" 
                                     alt="Aseem Aslah" 
                                     className="w-full h-full object-cover grayscale-[1] brightness-[1.1] contrast-[1.2] group-hover:grayscale-[0.5] group-hover:scale-105 transition-all duration-700 ease-[0.16,1,0.3,1] mix-blend-screen mix-blend-mode"
                                 />

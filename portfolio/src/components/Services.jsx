@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense, lazy } from 'react';
 import { Code2, MonitorSmartphone, Database, LayoutTemplate } from 'lucide-react';
-import Services3D from './Services3D';
+const Services3D = lazy(() => import('./Services3D'));
 
 const services = [
     {
@@ -58,7 +58,9 @@ const Services = () => {
 
     return (
         <section ref={sectionRef} id="services" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white relative overflow-hidden">
-            <Services3D />
+            <Suspense fallback={null}>
+                <Services3D />
+            </Suspense>
 
             {/* Animated Ambient Light */}
             <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full pointer-events-none -translate-x-1/2 mix-blend-screen"></div>

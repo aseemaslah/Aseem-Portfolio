@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, Suspense, lazy } from 'react';
 import { Github, Linkedin, Instagram, ArrowRight } from 'lucide-react';
-import Hero3D from './Hero3D';
+const Hero3D = lazy(() => import('./Hero3D'));
 import Magnetic from './Magnetic';
 
 const Hero = () => {
@@ -47,9 +47,9 @@ const Hero = () => {
     return (
         <section ref={containerRef} id="hero" className="min-h-[100dvh] flex flex-col justify-center relative overflow-hidden bg-[#030303] text-white pt-24 md:pt-20">
             {/* Ultra Premium Multi-layered Floating Orbs */}
-            <div className="absolute top-[-5%] right-[-5%] w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-sky-500/30 blur-[180px] rounded-full pointer-events-none mix-blend-screen animate-blob"></div>
-            <div className="absolute bottom-[0%] left-[-10%] w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] bg-indigo-600/20 blur-[200px] rounded-full pointer-events-none mix-blend-screen animate-blob animation-delay-2000"></div>
-            <div className="absolute top-[30%] left-[40%] w-[300px] h-[300px] bg-purple-600/15 blur-[150px] rounded-full pointer-events-none mix-blend-screen animate-blob animation-delay-4000"></div>
+            <div className="absolute top-[-5%] right-[-5%] w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-sky-500/20 blur-[120px] md:blur-[180px] rounded-full pointer-events-none mix-blend-screen animate-blob will-change-transform"></div>
+            <div className="absolute bottom-[0%] left-[-10%] w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] bg-indigo-600/15 blur-[150px] md:blur-[200px] rounded-full pointer-events-none mix-blend-screen animate-blob animation-delay-2000 will-change-transform"></div>
+            <div className="absolute top-[30%] left-[40%] w-[300px] h-[300px] bg-purple-600/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none mix-blend-screen animate-blob animation-delay-4000 will-change-transform"></div>
 
             <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none bg-[url('/noise.svg')] mix-blend-overlay"></div>
 
@@ -63,7 +63,7 @@ const Hero = () => {
                             variants={titleVariants}
                             initial="hidden"
                             animate="visible"
-                            className="text-[18vw] sm:text-[14vw] md:text-[9.5rem] lg:text-[12rem] font-black tracking-tighter leading-[0.85] mb-8 flex flex-col perspective-1000 z-10 pointer-events-none"
+                            className="text-[16vw] sm:text-[14vw] md:text-[9.5rem] lg:text-[12rem] font-black tracking-tighter leading-[0.85] mb-8 flex flex-col perspective-1000 z-10 pointer-events-none"
                         >
                             <div className="flex overflow-hidden pb-4">
                                 {nameStr.split('').map((char, index) => (
@@ -125,7 +125,9 @@ const Hero = () => {
                         className="lg:col-span-4 hidden lg:block pointer-events-none"
                     >
                         <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[140%] h-[140%] pointer-events-none opacity-90 mix-blend-screen z-10">
-                            <Hero3D />
+                            <Suspense fallback={null}>
+                <Hero3D />
+            </Suspense>
                         </div>
                     </motion.div>
                 </div>
