@@ -166,9 +166,9 @@ const Navbar = () => {
                                 <span className="opacity-80 text-gray-200">{time} IST</span>
                             </div>
                             <div className="flex gap-8">
-                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-mono tracking-widest">GH</a>
-                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#0A66C2] transition-colors text-sm font-mono tracking-widest">LI</a>
-                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#E4405F] transition-colors text-sm font-mono tracking-widest">IG</a>
+                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="text-gray-500 hover:text-sky-400 transition-colors text-sm font-mono tracking-widest">GH</a>
+                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="text-gray-500 hover:text-[#0A66C2] transition-colors text-sm font-mono tracking-widest">LI</a>
+                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="text-gray-500 hover:text-[#E4405F] transition-colors text-sm font-mono tracking-widest">IG</a>
                             </div>
                         </motion.div>
                     </motion.div>

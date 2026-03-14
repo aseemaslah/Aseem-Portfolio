@@ -30,7 +30,7 @@ function App() {
         {isLoading && <Preloader key="preloader" onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
 
-      <main className="bg-[#030303] min-h-screen text-white selection:bg-sky-500/30 selection:text-white lg:cursor-none relative">
+      <main className="bg-[#030303] min-h-screen text-white selection:bg-sky-500/30 selection:text-white lg:cursor-none relative overflow-x-hidden overflow-y-clip w-full flex flex-col">
         <div className="noise-overlay pointer-events-none"></div>
         <Cursor />
         <Navbar />

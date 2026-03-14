@@ -68,7 +68,7 @@ const About = () => {
     };
 
     return (
-        <section ref={sectionRef} id="about" className="py-24 md:py-32 lg:py-48 bg-[#030303] text-white px-4 sm:px-6 relative overflow-hidden">
+        <section ref={sectionRef} id="about" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white px-4 sm:px-6 relative overflow-hidden">
             {/* Massive Background Typography */}
             <motion.div
                 style={{ y: yText, WebkitTextStroke: "2px rgba(255,255,255,0.4)" }}

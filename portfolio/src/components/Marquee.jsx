@@ -53,7 +53,7 @@ function ParallaxText({ children, baseVelocity = 100, className = "" }) {
 
 const Marquee = () => {
     return (
-        <section className="py-24 md:py-36 my-16 mx-4 sm:mx-8 md:mx-16 rounded-[3rem] glass-panel text-white overflow-hidden relative z-10 shadow-[0_0_100px_rgba(14,165,233,0.15)] border border-white/5 bg-[#030303]/50">
+        <section className="py-12 md:py-16 my-8 mx-4 sm:mx-8 md:mx-16 rounded-[3rem] glass-panel text-white overflow-hidden relative z-10 shadow-[0_0_100px_rgba(14,165,233,0.15)] border border-white/5 bg-[#030303]/50">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-full bg-gradient-to-r from-sky-500/10 via-blue-500/20 to-indigo-500/10 blur-[120px] pointer-events-none mix-blend-screen"></div>
 
             <ParallaxText

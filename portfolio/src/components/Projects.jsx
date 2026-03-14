@@ -44,7 +44,7 @@ const Projects = () => {
     const opacityTitle = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.5]);
 
     return (
-        <section ref={targetRef} id="projects" className="py-24 md:py-32 lg:py-48 bg-[#030303] text-white px-4 sm:px-8 relative overflow-hidden flex flex-col border-t border-white/5">
+        <section ref={targetRef} id="projects" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white px-4 sm:px-8 relative overflow-hidden flex flex-col border-t border-white/5">
             {/* Ambient Background Effects */}
             <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-sky-600/10 blur-[200px] rounded-full mix-blend-screen pointer-events-none"></div>
             <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-purple-600/10 blur-[200px] rounded-full mix-blend-screen pointer-events-none"></div>

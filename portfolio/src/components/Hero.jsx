@@ -107,13 +107,13 @@ const Hero = () => {
                         >
                             <span className="text-xs font-mono text-gray-400 uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full border border-white/10 pointer-events-none">Connect</span>
                             <Magnetic>
-                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Github className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="p-4 glass-panel rounded-full text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Github className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F]/60 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Instagram className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F]/60 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Instagram className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                         </motion.div>
                     </motion.div>

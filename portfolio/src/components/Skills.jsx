@@ -52,7 +52,7 @@ const Skills = () => {
     const yText = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
 
     return (
-        <section ref={sectionRef} id="skills" className="py-24 md:py-32 lg:py-48 bg-black text-white relative overflow-hidden">
+        <section ref={sectionRef} id="skills" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white relative overflow-hidden">
             {/* Massive Background Typography */}
             <motion.div
                 style={{ y: yText, WebkitTextStroke: "2px rgba(255,255,255,0.4)" }}
@@ -62,7 +62,7 @@ const Skills = () => {
             </motion.div>
 
             {/* Ambient Background Light */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[300px] md:w-[600px] h-[250px] sm:h-[300px] md:h-[600px] bg-sky-900/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] md:w-[800px] h-[300px] sm:h-[500px] md:h-[800px] bg-sky-600/10 blur-[180px] rounded-full pointer-events-none z-0 mix-blend-screen"></div>
             <Skills3D />
 
             <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-7xl">
@@ -71,15 +71,15 @@ const Skills = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="mb-16 sm:mb-20 md:mb-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-6"
+                    className="mb-16 sm:mb-24 md:mb-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-6"
                 >
                     <div>
-                        <h2 className="text-xs sm:text-sm font-mono text-sky-500 tracking-[0.5em] mb-4 uppercase flex items-center">
+                        <h2 className="text-xs sm:text-sm font-mono text-sky-500 uppercase tracking-widest mb-6 flex items-center">
                             <span className="w-12 h-[1px] bg-sky-500/50 mr-4"></span>
                             Expertise
                         </h2>
-                        <h3 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
-                            Digital <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600">Toolkit.</span>
+                        <h3 className="text-4xl sm:text-6xl md:text-8xl lg:text-[9rem] font-black tracking-tighter leading-[0.9]">
+                            Digital <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-600 animate-glow">Toolkit.</span>
                         </h3>
                     </div>
                 </motion.div>
@@ -89,33 +89,33 @@ const Skills = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
-                    className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8"
+                    className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-10"
                 >
                     {skills.map((skill, index) => (
                         <Magnetic key={index} multiplier={0.2}>
                             <motion.div
                                 variants={itemVariants}
-                                whileHover={{ scale: 1.05, backgroundColor: "rgba(14, 165, 233, 0.05)" }}
-                                className="group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl border border-gray-800/50 hover:border-sky-500/30 flex flex-col items-center justify-center gap-4 sm:gap-6 transition-all duration-300 backdrop-blur-md cursor-pointer overflow-hidden bg-black/40 shadow-2xl"
+                                whileHover={{ scale: 1.05 }}
+                                className="group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-[2rem] glass-panel border border-white/5 hover:border-white/20 flex flex-col items-center justify-center gap-4 sm:gap-6 transition-all duration-700 backdrop-blur-xl cursor-none overflow-hidden bg-[#0a0a0a]/60 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
                             >
                                 {/* Glow behind icon on hover */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-700 pointer-events-none rounded-full scale-150 rotate-45" style={{ background: skill.color }} />
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-15 blur-[40px] transition-opacity duration-1000 pointer-events-none rounded-full scale-150 rotate-45 mix-blend-screen" style={{ background: skill.color }} />
 
                                 <div
-                                    className="text-gray-500 group-hover:text-white transition-all duration-500 transform group-hover:-translate-y-2 z-10"
+                                    className="text-gray-500 group-hover:text-white transition-all duration-700 transform group-hover:-translate-y-3 z-10"
                                     style={{ '--hover-color': skill.color }}
                                 >
-                                    <span style={{ color: skill.color }} className="opacity-60 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">
+                                    <span style={{ color: skill.color }} className="opacity-50 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                                         {skill.icon}
                                     </span>
                                 </div>
 
-                                <span className="text-xs md:text-sm font-medium text-gray-400 group-hover:text-white tracking-widest uppercase transition-colors duration-300 text-center z-10 group-hover:translate-y-1 transform">
+                                <span className="text-[10px] md:text-xs font-semibold text-gray-500 group-hover:text-white tracking-[0.2em] uppercase transition-colors duration-500 text-center z-10 group-hover:translate-y-2 transform">
                                     {skill.name}
                                 </span>
 
                                 {/* Edge highlight */}
-                                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                             </motion.div>
                         </Magnetic>
                     ))}
