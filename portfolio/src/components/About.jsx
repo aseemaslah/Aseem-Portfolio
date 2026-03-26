@@ -121,7 +121,7 @@ const About = () => {
                             onMouseMove={handleMouseMove}
                             onMouseLeave={handleMouseLeave}
                             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                            className="relative w-full aspect-[3/4] rounded-3xl cursor-none group"
+                            className="relative w-full aspect-[3/4] rounded-3xl lg:cursor-none group"
                         >
                             {/* Glow Behind the Image */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/30 to-purple-600/30 blur-[60px] rounded-full scale-90 group-hover:scale-110 transition-transform duration-1000"></div>

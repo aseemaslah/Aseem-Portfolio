@@ -98,7 +98,7 @@ const Skills = () => {
                             <motion.div
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.05 }}
-                                className="group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-[2rem] glass-panel border border-white/5 hover:border-white/20 flex flex-col items-center justify-center gap-4 sm:gap-6 transition-all duration-700 backdrop-blur-xl cursor-none overflow-hidden bg-[#0a0a0a]/60 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                                className="group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-[2rem] glass-panel border border-white/5 hover:border-white/20 flex flex-col items-center justify-center gap-4 sm:gap-6 transition-all duration-700 backdrop-blur-xl lg:cursor-none overflow-hidden bg-[#0a0a0a]/60 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
                             >
                                 {/* Glow behind icon on hover */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-15 blur-[40px] transition-opacity duration-1000 pointer-events-none rounded-full scale-150 rotate-45 mix-blend-screen" style={{ background: skill.color }} />

@@ -17,6 +17,7 @@ const Footer = lazy(() => import('./components/Footer'));
 const Marquee = lazy(() => import('./components/Marquee'));
 const Services = lazy(() => import('./components/Services'));
 const Experience = lazy(() => import('./components/Experience'));
+const SocialSidebar = lazy(() => import('./components/SocialSidebar'));
 
 function App() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
@@ -42,13 +43,14 @@ function App() {
         {isLoading && <Preloader key="preloader" onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
 
-      <main className="bg-[#030303] min-h-screen text-white selection:bg-sky-500/30 selection:text-white lg:cursor-none relative overflow-x-hidden overflow-y-clip w-full flex flex-col">
+      <main className="bg-[#030303] min-h-screen text-white selection:bg-sky-500/30 selection:text-white lg:cursor-none relative overflow-x-hidden w-full flex flex-col">
         {isDesktop && <div className="noise-overlay pointer-events-none"></div>}
         <Cursor />
         <Navbar />
         <Hero />
         <ErrorBoundary>
           <Suspense fallback={<div className="h-screen bg-[#030303]" />}>
+            <SocialSidebar />
             <Marquee />
             <About />
             <Services />

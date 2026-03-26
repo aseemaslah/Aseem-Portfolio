@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, Suspense, lazy } from 'react';
-import { Mail, ArrowRight, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, ArrowRight } from 'lucide-react';
+import { SiGithub, SiLinkedin, SiInstagram, SiWhatsapp } from 'react-icons/si';
 const Contact3D = lazy(() => import('./Contact3D'));
 import Magnetic from './Magnetic';
 
@@ -13,6 +14,20 @@ const Contact = () => {
 
     const xBg = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
     const opacityBg = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.1, 0]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        const phoneNumber = "919037432518";
+        const text = `Hello Aseem,\n\nMy name is *${name}*.\nEmail: *${email}*\n\nMessage: ${message}`;
+        const encodedText = encodeURIComponent(text);
+        
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+    };
 
     return (
         <section ref={sectionRef} id="contact" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white relative overflow-hidden">
@@ -61,7 +76,7 @@ const Contact = () => {
                                     whileHover={{ x: 10 }}
                                     transition={{ type: "spring", stiffness: 300 }}
                                     href="mailto:aseemaslah4508@gmail.com"
-                                    className="flex items-center gap-4 text-xl sm:text-2xl font-light hover:text-sky-400 transition-colors group w-fit cursor-none"
+                                    className="flex items-center gap-4 text-xl sm:text-2xl font-light hover:text-sky-400 transition-colors group w-fit lg:cursor-none"
                                 >
                                     <div className="p-4 rounded-full glass-panel border border-white/10 group-hover:bg-sky-500/10 group-hover:border-sky-500/50 transition-all duration-500 shrink-0 shadow-lg">
                                         <Mail className="w-6 h-6 md:w-7 md:h-7" />
@@ -76,9 +91,10 @@ const Contact = () => {
 
                         <div className="flex gap-6">
                             {[
-                                { icon: <Github size={24} />, href: "https://github.com/aseemaslah" },
-                                { icon: <Linkedin size={24} />, href: "https://www.linkedin.com/in/aseem-aslah" },
-                                { icon: <Instagram size={24} />, href: "https://www.instagram.com/_asim_aslh__" }
+                                { icon: <SiGithub size={24} />, href: "https://github.com/aseemaslah" },
+                                { icon: <SiLinkedin size={24} />, href: "https://www.linkedin.com/in/aseem-aslah" },
+                                { icon: <SiInstagram size={24} />, href: "https://www.instagram.com/_asim_aslh__" },
+                                { icon: <SiWhatsapp size={24} />, href: "https://wa.me/919037432518" }
                             ].map((social, idx) => (
                                 <Magnetic key={idx}>
                                     <motion.a
@@ -87,7 +103,7 @@ const Contact = () => {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-4 rounded-full glass-panel border border-white/10 hover:border-sky-400 transition-all duration-500 text-gray-400 hover:text-white block shadow-lg group cursor-none"
+                                        className="p-4 rounded-full glass-panel border border-white/10 hover:border-sky-400 transition-all duration-500 text-gray-400 hover:text-white block shadow-lg group lg:cursor-none"
                                     >
                                         <div className="group-hover:scale-110 transition-transform duration-500">
                                             {social.icon}
@@ -102,14 +118,12 @@ const Contact = () => {
                 {/* Right Side: Premium Clean Form */}
                 <div className="lg:w-6/12 w-full pt-8 lg:pt-0">
                     <motion.form
+                        onSubmit={handleSubmit}
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         viewport={{ once: true, margin: "-50px" }}
-                        className="space-y-12 bg-[#0a0a0a]/60 p-8 sm:p-12 border border-white/5 rounded-3xl backdrop-blur-xl relative overflow-hidden group/form shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
-                        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd3XMNSJtL7B4Max8yUqRv7v0rjmdRiEpc2i_TP7CL4IcWmVQ/formResponse"
-                        method="POST"
-                        target="_blank"
+                        className="space-y-12 bg-[#0a0a0a]/60 p-5 sm:p-12 border border-white/5 rounded-3xl backdrop-blur-xl relative overflow-hidden group/form shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
                     >
                         {/* Hover flare */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-sky-500/20 to-purple-600/10 rounded-full blur-[80px] opacity-0 group-hover/form:opacity-100 group-hover/form:translate-x-1/4 group-hover/form:-translate-y-1/4 transition-all duration-1000 mix-blend-screen"></div>
@@ -118,7 +132,7 @@ const Contact = () => {
                             <input
                                 type="text"
                                 id="name"
-                                name="entry.181621641"
+                                name="name"
                                 className="w-full bg-transparent border-b border-white/20 py-4 text-xl md:text-2xl focus:outline-none focus:border-sky-400 focus:bg-white/[0.02] hover:border-white/50 transition-all duration-300 peer rounded-t-sm"
                                 placeholder=" "
                                 required
@@ -136,7 +150,7 @@ const Contact = () => {
                             <input
                                 type="email"
                                 id="email"
-                                name="entry.1593222259"
+                                name="email"
                                 className="w-full bg-transparent border-b border-white/20 py-4 text-xl md:text-2xl focus:outline-none focus:border-sky-400 focus:bg-white/[0.02] hover:border-white/50 transition-all duration-300 peer rounded-t-sm"
                                 placeholder=" "
                                 required
@@ -153,7 +167,7 @@ const Contact = () => {
                         <div className="group relative z-10">
                             <textarea
                                 id="message"
-                                name="entry.1243622484"
+                                name="message"
                                 rows="3"
                                 className="w-full bg-transparent border-b border-white/20 py-4 text-xl md:text-2xl focus:outline-none focus:border-sky-400 focus:bg-white/[0.02] hover:border-white/50 transition-all duration-300 peer resize-none rounded-t-sm"
                                 placeholder=" "
@@ -174,7 +188,7 @@ const Contact = () => {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="relative group flex items-center justify-between w-full p-6 sm:p-8 overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-sky-400/50 transition-all duration-500 shadow-xl cursor-none"
+                                    className="relative group flex items-center justify-between w-full p-6 sm:p-8 overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-sky-400/50 transition-all duration-500 shadow-xl lg:cursor-none"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-700 ease-[0.16,1,0.3,1] z-0 hover:shadow-[0_0_30px_rgba(14,165,233,0.5)]"></div>
 

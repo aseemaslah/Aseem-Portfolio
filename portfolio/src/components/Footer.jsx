@@ -12,13 +12,16 @@ const Footer = () => {
 
                 <div className="flex flex-wrap justify-center gap-6 sm:gap-12 order-1 md:order-2">
                     <Magnetic>
-                        <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="hover:text-white transition-all py-3 px-6 glass-panel rounded-full hover:border-sky-500/50 hover:bg-white/5 shadow-md cursor-none text-gray-400">GitHub</a>
+                        <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="hover:text-white transition-all py-3 px-6 glass-panel rounded-full hover:border-sky-500/50 hover:bg-white/5 shadow-md lg:cursor-none text-gray-400">GitHub</a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="hover:text-[#0A66C2] transition-all py-3 px-6 glass-panel rounded-full hover:border-[#0A66C2]/50 hover:bg-white/5 shadow-md cursor-none text-gray-400">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="hover:text-[#0A66C2] transition-all py-3 px-6 glass-panel rounded-full hover:border-[#0A66C2]/50 hover:bg-white/5 shadow-md lg:cursor-none text-gray-400">LinkedIn</a>
                     </Magnetic>
                     <Magnetic>
-                        <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="hover:text-[#E4405F] transition-all py-3 px-6 glass-panel rounded-full hover:border-[#E4405F]/50 hover:bg-white/5 shadow-md cursor-none text-gray-400">Instagram</a>
+                        <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="hover:text-[#E4405F] transition-all py-3 px-6 glass-panel rounded-full hover:border-[#E4405F]/50 hover:bg-white/5 shadow-md lg:cursor-none text-gray-400">Instagram</a>
+                    </Magnetic>
+                    <Magnetic>
+                        <a href="https://wa.me/919037432518" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" className="hover:text-[#25D366] transition-all py-3 px-6 glass-panel rounded-full hover:border-[#25D366]/50 hover:bg-white/5 shadow-md lg:cursor-none text-gray-400">WhatsApp</a>
                     </Magnetic>
                 </div>
 

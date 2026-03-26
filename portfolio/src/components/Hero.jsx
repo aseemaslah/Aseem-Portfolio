@@ -4,6 +4,8 @@ import { Github, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 const Hero3D = lazy(() => import('./Hero3D'));
 import Magnetic from './Magnetic';
 
+import { SiGithub, SiLinkedin, SiInstagram, SiWhatsapp } from 'react-icons/si';
+
 const Hero = () => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -92,7 +94,7 @@ const Hero = () => {
                             </p>
 
                             <Magnetic multiplier={0.2}>
-                                <a href="#projects" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-sky-500/20 border border-white/20 hover:border-sky-400 px-10 py-5 rounded-full transition-all duration-500 backdrop-blur-md shadow-[0_0_30px_rgba(14,165,233,0.2)] hover:shadow-[0_0_50px_rgba(14,165,233,0.4)] pointer-events-auto cursor-none">
+                                <a href="#projects" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-sky-500/20 border border-white/20 hover:border-sky-400 px-10 py-5 rounded-full transition-all duration-500 backdrop-blur-md shadow-[0_0_30px_rgba(14,165,233,0.2)] hover:shadow-[0_0_50px_rgba(14,165,233,0.4)] pointer-events-auto lg:cursor-none">
                                     <span className="text-sm font-bold tracking-[0.25em] text-white group-hover:text-sky-300 transition-colors uppercase">Explore Work</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-3 group-hover:text-sky-300 transition-all duration-300" />
                                 </a>
@@ -107,13 +109,16 @@ const Hero = () => {
                         >
                             <span className="text-xs font-mono text-gray-400 uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full border border-white/10 pointer-events-none">Connect</span>
                             <Magnetic>
-                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="p-4 glass-panel rounded-full text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Github className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="p-4 glass-panel rounded-full text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiGithub size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Linkedin className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiLinkedin size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F]/60 transition-all duration-300 shadow-lg group pointer-events-auto cursor-none"><Instagram className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiInstagram size={20} className="group-hover:scale-110 transition-transform" /></a>
+                            </Magnetic>
+                            <Magnetic>
+                                <a href="https://wa.me/919037432518" target="_blank" rel="noopener noreferrer" aria-label="Chat with me on WhatsApp" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#25D366] hover:border-[#25D366]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiWhatsapp size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                         </motion.div>
                     </motion.div>
