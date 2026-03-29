@@ -4,7 +4,7 @@ import { Float, Torus, Octahedron, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 
-function ProjectsScene() {
+function ProjectsScene({ scrollYProgress }) {
     const groupRef = useRef();
 
     useFrame((state) => {
@@ -15,9 +15,10 @@ function ProjectsScene() {
             groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, mouseY * 0.2, 0.05);
             groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, mouseX * 0.2, 0.05);
 
-            const scrollY = window.scrollY;
-            // Adjust baseline based on approximate scroll position of Projects section
-            groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, -(scrollY - 2000) * 0.002, 0.05);
+            // Sync with scroll progress
+            const scrollVal = scrollYProgress.get();
+            groupRef.current.position.y = THREE.MathUtils.lerp(groupRef.current.position.y, (scrollVal - 0.5) * 15, 0.05);
+            groupRef.current.rotation.z = THREE.MathUtils.lerp(groupRef.current.rotation.z, scrollVal * Math.PI, 0.05);
         }
     });
 
@@ -26,10 +27,11 @@ function ProjectsScene() {
             <Float speed={1.5} rotationIntensity={2} floatIntensity={2}>
                 <Torus args={[3, 0.2, 32, 100]} position={[-6, 2, -2]}>
                     <meshPhysicalMaterial
-                        color="#6b7280"
-                        metalness={0.9}
-                        roughness={0.1}
+                        color="#0ea5e9"
+                        metalness={1}
+                        roughness={0}
                         clearcoat={1}
+                        reflectivity={1}
                         wireframe
                     />
                 </Torus>
@@ -37,9 +39,11 @@ function ProjectsScene() {
             <Float speed={2} rotationIntensity={1.5} floatIntensity={1}>
                 <Octahedron args={[2]} position={[6, -4, -5]}>
                     <meshPhysicalMaterial
-                        color="#9ca3af"
-                        metalness={0.8}
+                        color="#6366f1"
+                        metalness={0.9}
                         roughness={0.1}
+                        clearcoat={1}
+                        reflectivity={1}
                     />
                 </Octahedron>
             </Float>
@@ -47,7 +51,7 @@ function ProjectsScene() {
     );
 }
 
-export default function Projects3D() {
+export default function Projects3D({ scrollYProgress }) {
     const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     if (!isDesktop) return null;
@@ -61,7 +65,7 @@ export default function Projects3D() {
             >
                 <ambientLight intensity={0.2} />
                 <directionalLight position={[10, 10, 10]} intensity={1} />
-                <ProjectsScene />
+                <ProjectsScene scrollYProgress={scrollYProgress} />
                 <Environment preset="city" />
             </Canvas>
         </div>

@@ -55,8 +55,8 @@ const Skills = () => {
         <section ref={sectionRef} id="skills" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white relative overflow-hidden">
             {/* Massive Background Typography */}
             <motion.div
-                style={{ y: yText, WebkitTextStroke: "2px rgba(255,255,255,0.4)" }}
-                className="absolute top-[30%] right-[-10%] text-[30vw] font-black text-transparent opacity-5 pointer-events-none stroke-text select-none text-stroke-hover leading-none z-0"
+                style={{ y: yText, WebkitTextStroke: "1px rgba(255,255,255,0.4)" }}
+                className="absolute top-[30%] right-[-10%] text-[40vw] sm:text-[30vw] font-black text-transparent opacity-[0.03] pointer-events-none stroke-text select-none leading-none z-0"
             >
                 SKILLS
             </motion.div>
@@ -98,21 +98,21 @@ const Skills = () => {
                             <motion.div
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.05 }}
-                                className="group relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-[2rem] glass-panel border border-white/5 hover:border-white/20 flex flex-col items-center justify-center gap-4 sm:gap-6 transition-all duration-700 backdrop-blur-xl lg:cursor-none overflow-hidden bg-[#0a0a0a]/60 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                                className="group relative w-[130px] h-[130px] xs:w-36 xs:h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-[1.5rem] sm:rounded-[2rem] glass-panel border border-white/5 hover:border-white/20 flex flex-col items-center justify-center gap-3 sm:gap-6 transition-all duration-700 backdrop-blur-xl lg:cursor-none overflow-hidden bg-[#0a0a0a]/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] active:scale-95"
                             >
                                 {/* Glow behind icon on hover */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-15 blur-[40px] transition-opacity duration-1000 pointer-events-none rounded-full scale-150 rotate-45 mix-blend-screen" style={{ background: skill.color }} />
 
                                 <div
-                                    className="text-gray-500 group-hover:text-white transition-all duration-700 transform group-hover:-translate-y-3 z-10"
+                                    className="text-gray-500 group-hover:text-white transition-all duration-700 transform group-hover:-translate-y-2 sm:group-hover:-translate-y-3 z-10"
                                     style={{ '--hover-color': skill.color }}
                                 >
-                                    <span style={{ color: skill.color }} className="opacity-50 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                                    <div style={{ color: skill.color }} className="opacity-60 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] scale-75 xs:scale-90 sm:scale-100">
                                         {skill.icon}
-                                    </span>
+                                    </div>
                                 </div>
 
-                                <span className="text-[10px] md:text-xs font-semibold text-gray-500 group-hover:text-white tracking-[0.2em] uppercase transition-colors duration-500 text-center z-10 group-hover:translate-y-2 transform">
+                                <span className="text-[10px] md:text-xs font-semibold text-gray-500 group-hover:text-white tracking-[0.1em] sm:tracking-[0.2em] uppercase transition-colors duration-500 text-center z-10 group-hover:translate-y-1 sm:group-hover:translate-y-2 transform px-2">
                                     {skill.name}
                                 </span>
 

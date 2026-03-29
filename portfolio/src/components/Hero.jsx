@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, Suspense, lazy } from 'react';
 import { Github, Linkedin, Instagram, ArrowRight } from 'lucide-react';
-const Hero3D = lazy(() => import('./Hero3D'));
+import Hero3D from './Hero3D';
 import Magnetic from './Magnetic';
 
 import { SiGithub, SiLinkedin, SiInstagram, SiWhatsapp } from 'react-icons/si';
@@ -49,11 +49,18 @@ const Hero = () => {
     return (
         <section ref={containerRef} id="hero" className="min-h-[100dvh] flex flex-col justify-center relative overflow-hidden bg-[#030303] text-white pt-24 md:pt-20">
             {/* Ultra Premium Multi-layered Floating Orbs */}
-            <div className="absolute top-[-5%] right-[-5%] w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-sky-500/20 blur-[120px] md:blur-[180px] rounded-full pointer-events-none mix-blend-screen animate-blob will-change-transform"></div>
-            <div className="absolute bottom-[0%] left-[-10%] w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] bg-indigo-600/15 blur-[150px] md:blur-[200px] rounded-full pointer-events-none mix-blend-screen animate-blob animation-delay-2000 will-change-transform"></div>
-            <div className="absolute top-[30%] left-[40%] w-[300px] h-[300px] bg-purple-600/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none mix-blend-screen animate-blob animation-delay-4000 will-change-transform"></div>
+            <div className="absolute top-[-5%] right-[-5%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-sky-500/10 blur-[100px] md:blur-[180px] rounded-full pointer-events-none animate-blob will-change-transform"></div>
+            <div className="absolute bottom-[10%] left-[-10%] w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-indigo-600/10 blur-[120px] md:blur-[200px] rounded-full pointer-events-none animate-blob animation-delay-2000 will-change-transform"></div>
+            <div className="absolute top-[30%] left-[40%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] bg-purple-600/10 blur-[80px] md:blur-[150px] rounded-full pointer-events-none animate-blob animation-delay-4000 will-change-transform"></div>
 
             <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none bg-[url('/noise.svg')] mix-blend-overlay"></div>
+
+            {/* World-Class 3D Background Layer */}
+            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                <div className="absolute top-1/2 -translate-y-1/2 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-[0%] lg:right-[5%] w-[100vw] lg:w-[60vw] h-[100vh] pointer-events-none opacity-60 md:opacity-90 transform-gpu overflow-hidden">
+                    <Hero3D />
+                </div>
+            </div>
 
             <div className="container mx-auto px-4 sm:px-8 z-10 relative">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -65,7 +72,7 @@ const Hero = () => {
                             variants={titleVariants}
                             initial="hidden"
                             animate="visible"
-                            className="text-[16vw] sm:text-[14vw] md:text-[9.5rem] lg:text-[12rem] font-black tracking-tighter leading-[0.85] mb-8 flex flex-col perspective-1000 z-10 pointer-events-none"
+                            className="text-[17vw] xs:text-[16vw] sm:text-[14vw] md:text-[9.5rem] lg:text-[12rem] font-black tracking-tighter leading-[0.85] mb-8 flex flex-col perspective-1000 z-10 pointer-events-none"
                         >
                             <div className="flex overflow-hidden pb-4">
                                 {nameStr.split('').map((char, index) => (
@@ -89,14 +96,14 @@ const Hero = () => {
                             transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
                             className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12 mb-12 sm:mb-16 z-20 pointer-events-auto"
                         >
-                            <p className="text-base sm:text-lg md:text-xl text-gray-300 font-light max-w-lg leading-relaxed border-l-[3px] border-sky-500 pl-6 rounded-sm backdrop-blur-sm bg-white/5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] pointer-events-none">
+                            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-300 font-light max-w-lg leading-relaxed border-l-[3px] border-sky-500 pl-4 sm:pl-6 rounded-sm backdrop-blur-sm bg-white/5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] pointer-events-none">
                                 Architecting <b className="text-white font-medium">world-class digital experiences</b> with mathematics, motion, and modern web technologies.
                             </p>
 
                             <Magnetic multiplier={0.2}>
-                                <a href="#projects" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-sky-500/20 border border-white/20 hover:border-sky-400 px-10 py-5 rounded-full transition-all duration-500 backdrop-blur-md shadow-[0_0_30px_rgba(14,165,233,0.2)] hover:shadow-[0_0_50px_rgba(14,165,233,0.4)] pointer-events-auto lg:cursor-none">
-                                    <span className="text-sm font-bold tracking-[0.25em] text-white group-hover:text-sky-300 transition-colors uppercase">Explore Work</span>
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-3 group-hover:text-sky-300 transition-all duration-300" />
+                                <a href="#projects" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-sky-500/20 border border-white/20 hover:border-sky-400 px-8 sm:px-10 py-4 sm:py-5 rounded-full transition-all duration-500 backdrop-blur-md shadow-[0_0_30px_rgba(14,165,233,0.2)] hover:shadow-[0_0_50px_rgba(14,165,233,0.4)] pointer-events-auto lg:cursor-none active:scale-95">
+                                    <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-white group-hover:text-sky-300 transition-colors uppercase">Explore Work</span>
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 group-hover:text-sky-300 transition-all duration-300" />
                                 </a>
                             </Magnetic>
                         </motion.div>
@@ -109,31 +116,18 @@ const Hero = () => {
                         >
                             <span className="text-xs font-mono text-gray-400 uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full border border-white/10 pointer-events-none">Connect</span>
                             <Magnetic>
-                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Profile" className="p-4 glass-panel rounded-full text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiGithub size={20} className="group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://github.com/aseemaslah" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-white hover:border-white/50 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiGithub size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiLinkedin size={20} className="group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://www.linkedin.com/in/aseem-aslah" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#0A66C2] hover:border-[#0A66C2]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiLinkedin size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" aria-label="Follow me on Instagram" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiInstagram size={20} className="group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://www.instagram.com/_asim_aslh__" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiInstagram size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                             <Magnetic>
-                                <a href="https://wa.me/919037432518" target="_blank" rel="noopener noreferrer" aria-label="Chat with me on WhatsApp" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#25D366] hover:border-[#25D366]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiWhatsapp size={20} className="group-hover:scale-110 transition-transform" /></a>
+                                <a href="https://wa.me/919037432518" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#25D366] hover:border-[#25D366]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiWhatsapp size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                         </motion.div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                        className="lg:col-span-4 hidden lg:block pointer-events-none"
-                    >
-                        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[140%] h-[140%] pointer-events-none opacity-90 mix-blend-screen z-10">
-                            <Suspense fallback={null}>
-                <Hero3D />
-            </Suspense>
-                        </div>
                     </motion.div>
                 </div>
             </div>
@@ -154,8 +148,7 @@ const Hero = () => {
                     ></motion.div>
                 </div>
             </motion.div>
-        </section >
-
+        </section>
     );
 };
 

@@ -6,6 +6,7 @@
   --color-accent: #0ea5e9;
   --font-sans: 'Outfit', sans-serif;
   --font-mono: 'Space Grotesk', monospace;
+  --breakpoint-xs: 480px;
 
   --animate-fade-in: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-blob: blob 10s infinite alternate;
@@ -63,6 +64,8 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -71,11 +74,13 @@
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent; /* Remove mobile tap blue highlight */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
+    word-break: break-word; /* Prevent long words from breaking layout */
   }
 
   ::selection {

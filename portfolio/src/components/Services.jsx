@@ -69,13 +69,13 @@ const Services = () => {
             <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
                 <motion.div
                     style={{ y: yTitle, opacity: opacityTitle }}
-                    className="mb-16 sm:mb-24 md:mb-32"
+                    className="mb-12 sm:mb-24 md:mb-32"
                 >
                     <h2 className="text-xs sm:text-sm font-mono text-indigo-400 uppercase tracking-widest mb-6 flex items-center">
                         <span className="w-8 h-[1px] bg-indigo-500/50 mr-4"></span>
                         Capabilities
                     </h2>
-                    <h3 className="text-4xl sm:text-6xl md:text-8xl lg:text-[9rem] font-black tracking-tighter leading-[0.9]">
+                    <h3 className="text-[13vw] xs:text-[12vw] sm:text-6xl md:text-8xl lg:text-[9rem] font-black tracking-tighter leading-[0.9]">
                         WHAT I <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 animate-glow">BRING.</span>
                     </h3>
                 </motion.div>
@@ -93,7 +93,7 @@ const Services = () => {
                             variants={itemVariants}
                             whileHover={{ scale: 1.02, zIndex: 30 }}
                             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="glass-panel p-8 sm:p-12 md:p-16 rounded-[2rem] group relative overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/5 hover:border-sky-500/40 bg-[#0a0a0a]/60 backdrop-blur-xl"
+                            className="glass-panel p-6 xs:p-8 sm:p-12 md:p-16 rounded-[1.5rem] sm:rounded-[2rem] group relative overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.5)] border border-white/5 hover:border-sky-500/40 bg-[#0a0a0a]/60 backdrop-blur-xl"
                         >
                             {/* Hover Ambient Glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 via-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none z-0 mix-blend-screen"></div>

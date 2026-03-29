@@ -87,8 +87,8 @@ const About = () => {
         <section ref={sectionRef} id="about" className="py-12 md:py-16 lg:py-24 bg-[#030303] text-white px-4 sm:px-6 relative overflow-hidden">
             {/* Massive Background Typography */}
             <motion.div
-                style={{ y: yText, WebkitTextStroke: "2px rgba(255,255,255,0.4)" }}
-                className="absolute top-[20%] left-[-10%] text-[40vw] font-black text-transparent opacity-5 pointer-events-none stroke-text select-none text-stroke-hover leading-none"
+                style={{ y: yText, WebkitTextStroke: "1px rgba(255,255,255,0.4)" }}
+                className="absolute top-[20%] left-[-10%] text-[50vw] sm:text-[40vw] font-black text-transparent opacity-[0.03] pointer-events-none stroke-text select-none leading-none"
             >
                 ABOUT
             </motion.div>
@@ -152,7 +152,7 @@ const About = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         className="lg:col-span-7 lg:pl-8 flex flex-col justify-center mt-4 lg:mt-24 space-y-12"
                     >
-                        <h3 className="text-4xl sm:text-5xl md:text-6xl font-serif italic text-white leading-[1.1] flex flex-wrap gap-x-3 gap-y-2 border-b border-white/10 pb-12 shadow-sm">
+                        <h3 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-serif italic text-white leading-[1.2] sm:leading-[1.1] flex flex-wrap gap-x-3 gap-y-2 border-b border-white/10 pb-8 sm:pb-12 shadow-sm">
                             {quoteWords.map((word, index) => (
                                 <span className="overflow-hidden" key={index}>
                                     <motion.span

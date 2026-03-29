@@ -28,7 +28,7 @@ const Preloader = ({ onComplete }) => {
             className="fixed inset-0 z-[99999] bg-[#050505] flex flex-col items-center justify-center text-white overflow-hidden pointer-events-auto"
         >
             {/* Massive background noise text */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] font-black text-transparent opacity-[0.03] stroke-text select-none whitespace-nowrap pointer-events-none" style={{ WebkitTextStroke: "2px rgba(255,255,255,1)" }}>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[50vw] sm:text-[40vw] font-black text-transparent opacity-[0.02] stroke-text select-none whitespace-nowrap pointer-events-none" style={{ WebkitTextStroke: "1px rgba(255,255,255,1)" }}>
                 PORTFOLIO
             </div>
 

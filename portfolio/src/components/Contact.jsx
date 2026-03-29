@@ -41,8 +41,8 @@ const Contact = () => {
 
             {/* Large background text */}
             <motion.div
-                style={{ x: xBg, opacity: opacityBg, WebkitTextStroke: "2px rgba(255,255,255,0.4)" }}
-                className="absolute bottom-10 left-0 text-[35vw] font-black text-transparent opacity-5 pointer-events-none select-none translate-y-20 whitespace-nowrap text-stroke-hover"
+                style={{ x: xBg, opacity: opacityBg, WebkitTextStroke: "1px rgba(255,255,255,0.4)" }}
+                className="absolute bottom-10 left-0 text-[45vw] sm:text-[35vw] font-black text-transparent opacity-[0.03] pointer-events-none select-none translate-y-20 whitespace-nowrap leading-none"
             >
                 CONTACT
             </motion.div>
@@ -61,7 +61,7 @@ const Contact = () => {
                             <span className="w-12 h-[1px] bg-sky-500/50 mr-4"></span>
                             Got an idea?
                         </h2>
-                        <h3 className="text-[12vw] sm:text-[10vw] md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 sm:mb-12 leading-[0.9]">
+                        <h3 className="text-[14vw] xs:text-[12vw] sm:text-[10vw] md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 sm:mb-12 leading-[0.9]">
                             LET'S WORK <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-500 to-purple-500 animate-glow">TOGETHER.</span>
                         </h3>
@@ -123,7 +123,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         viewport={{ once: true, margin: "-50px" }}
-                        className="space-y-12 bg-[#0a0a0a]/60 p-5 sm:p-12 border border-white/5 rounded-3xl backdrop-blur-xl relative overflow-hidden group/form shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+                        className="space-y-10 sm:space-y-12 bg-[#0a0a0a]/60 p-6 xs:p-8 sm:p-12 border border-white/5 rounded-3xl backdrop-blur-xl relative overflow-hidden group/form shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                     >
                         {/* Hover flare */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-sky-500/20 to-purple-600/10 rounded-full blur-[80px] opacity-0 group-hover/form:opacity-100 group-hover/form:translate-x-1/4 group-hover/form:-translate-y-1/4 transition-all duration-1000 mix-blend-screen"></div>

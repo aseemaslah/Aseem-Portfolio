@@ -58,7 +58,7 @@ const Navbar = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1 }} // Wait for preloader to finish
-            className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 md:px-12 py-4 md:py-6 flex justify-between items-center transition-all duration-700 ${scrolled ? 'bg-[#030303]/70 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent text-white mix-blend-difference'}`}
+            className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 md:px-12 py-4 md:py-6 flex justify-between items-center transition-all duration-700 ${scrolled ? 'bg-[#030303]/70 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]' : 'bg-transparent text-white'}`}
         >
             {/* Logo Area (Left) */}
             <div className="flex-1 flex justify-start z-50">
@@ -134,7 +134,7 @@ const Navbar = () => {
                                 custom={i}
                                 variants={linkVariants}
                                 onClick={() => setIsOpen(false)}
-                                className="text-5xl sm:text-6xl font-black uppercase tracking-tighter text-gray-400 hover:text-white transition-colors relative group"
+                                className="text-4xl xs:text-5xl sm:text-6xl font-black uppercase tracking-tighter text-gray-400 hover:text-white transition-colors relative group active:scale-95"
                             >
                                 <span className="absolute top-1/2 left-[-10%] w-0 h-2 bg-gradient-to-r from-sky-400 to-indigo-500 -translate-y-1/2 group-hover:w-[120%] transition-all duration-700 ease-[0.16,1,0.3,1] z-0 blur-[2px]"></span>
                                 <span className="relative z-10">{link.name}</span>
