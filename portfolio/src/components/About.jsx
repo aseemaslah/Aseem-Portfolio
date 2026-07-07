@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { useRef, useEffect, Suspense, lazy } from 'react';
 const About3D = lazy(() => import('./About3D'));
 import Magnetic from './Magnetic';
+import aseemGlassesHd from '../assets/aseem_glasses_hd.png';
 
 // Word animation
 const quote = "Bridging the gap between raw code and human experience.";
@@ -132,9 +133,9 @@ const About = () => {
                                 className="w-full h-full rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative z-10 bg-black/40 backdrop-blur-md"
                             >
                                 <img 
-                                    src="/profile.webp" 
+                                    src={aseemGlassesHd} 
                                     alt="Aseem Aslah" 
-                                    className="w-full h-full object-cover grayscale-[1] brightness-[1.1] contrast-[1.2] group-hover:grayscale-[0.5] group-hover:scale-105 transition-all duration-700 ease-[0.16,1,0.3,1] mix-blend-screen mix-blend-mode"
+                                    className="w-full h-full object-cover grayscale-[0.8] brightness-[1.05] contrast-[1.15] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-[0.16,1,0.3,1]"
                                 />
                                 
                                 {/* Overlay Gradient for Premium Vignette Effect */}

@@ -4,32 +4,25 @@ const Projects3D = lazy(() => import('./Projects3D'));
 
 const projects = [
     {
+        title: "QRpay",
+        description: "A contactless restaurant ordering and payment platform. Customers scan table QR codes to browse menus and pay digitally without server intervention.",
+        tags: ["Angular", "Node.js", "Express.js", "MongoDB", "TypeScript", "REST APIs"],
+        link: "https://github.com/aseemaslah",
+        image: "/projects/qrpay_mockup.png"
+    },
+    {
         title: "E-Commerce App",
-        description: "Full-featured online store.",
-        tags: ["MEAN Stack", "Angular", "Node.js"],
-        link: "https://github.com/aseemaslah/E-commerce-App",
-        image: "/projects/ecommerce.webp"
+        description: "A full-stack fashion e-commerce platform for a clothing brand. Integrated direct WhatsApp-based ordering, category filtering, and administrative inventory control.",
+        tags: ["Angular 20", "Bootstrap", "TypeScript", "MongoDB", "Vercel", "Render"],
+        link: "https://kanalimen.vercel.app/",
+        image: "/projects/ecommerce_mockup.png"
     },
     {
-        title: "Student Management",
-        description: "Efficient record administration.",
-        tags: ["Angular", "Typescript", "Express"],
+        title: "Student Management System",
+        description: "A full-stack records platform covering student profiles, attendance tracking, and academic performance dashboards with optimized database lookup speeds.",
+        tags: ["Angular", "Node.js", "Express.js", "MongoDB", "TypeScript", "REST APIs"],
         link: "https://github.com/aseemaslah/Student-Managment",
-        image: "/projects/student.webp"
-    },
-    {
-        title: "Hasoon Trading",
-        description: "Business & Product showcase.",
-        tags: ["Web Dev", "Frontend"],
-        link: "https://github.com/aseemaslah/HasoonGeneralTrading",
-        image: "/projects/trading.webp"
-    },
-    {
-        title: "Portfolio Website",
-        description: "Personal design showcase.",
-        tags: ["React", "Vite", "Tailwind"],
-        link: "https://github.com/aseemaslah/portfolio",
-        image: "/projects/portfolio.webp"
+        image: "/projects/dashboard_mockup.png"
     }
 ];
 

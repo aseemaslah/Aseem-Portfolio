@@ -1,72 +1,94 @@
-import { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshTransmissionMaterial, Environment } from '@react-three/drei';
-import * as THREE from 'three';
-import { useMediaQuery } from '../hooks/useMediaQuery';
-
-function HeroScene() {
-    const meshRef = useRef();
-    const isMobile = useMediaQuery('(max-width: 768px)');
-
-    useFrame((state) => {
-        // Cursor assisted movement
-        const targetX = (state.pointer.x * Math.PI) / 4;
-        const targetY = (state.pointer.y * Math.PI) / 4;
-
-        if (meshRef.current) {
-            if (isMobile) {
-                // Continuous graceful auto-rotation for mobile 
-                meshRef.current.rotation.y += 0.005;
-                meshRef.current.rotation.x += 0.003;
-            } else {
-                meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -targetY, 0.05);
-                meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetX, 0.05);
-            }
-
-            // Scroll based movement (slight translation)
-            const scrollY = window.scrollY;
-            meshRef.current.position.y = THREE.MathUtils.lerp(meshRef.current.position.y, scrollY * -0.002, 0.05);
-        }
-    });
-
-    return (
-        <group scale={isMobile ? 0.7 : 1}>
-            <Float speed={3} rotationIntensity={1.5} floatIntensity={2}>
-                <mesh ref={meshRef} position={isMobile ? [0, -1, 0] : [0, 0, 0]}>
-                    <torusKnotGeometry args={[1.2, 0.35, 256, 64]} />
-                    <MeshTransmissionMaterial 
-                        backside
-                        samples={4}
-                        thickness={1.5}
-                        chromaticAberration={0.5}
-                        anisotropy={0.3}
-                        distortion={0.4}
-                        distortionScale={0.5}
-                        temporalDistortion={0.1}
-                        transmission={1}
-                        roughness={0.1}
-                        color="#e0f2fe"
-                    />
-                </mesh>
-            </Float>
-            <Environment preset="city" />
-        </group>
-    );
-}
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import aseemSuitHd from '../assets/aseem_suit_hd.png';
 
 export default function Hero3D() {
+    const cardRef = useRef(null);
+
+    // Mouse coordinates relative to screen dimensions for 3D rotation
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    // Smooth springs for high-end organic transition
+    const mouseXSpring = useSpring(x, { stiffness: 80, damping: 20 });
+    const mouseYSpring = useSpring(y, { stiffness: 80, damping: 20 });
+
+    // Multipliers for degree of tilt
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["12deg", "-12deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // Normalize mouse position between -0.5 and 0.5
+            const xPct = (e.clientX / width) - 0.5;
+            const yPct = (e.clientY / height) - 0.5;
+            
+            x.set(xPct);
+            y.set(yPct);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, [x, y]);
+
     return (
-        <div className="w-full h-full absolute inset-0 pointer-events-none">
-            <Canvas 
-                camera={{ position: [0, 0, 5], fov: 45 }}
-                dpr={[1, 2]}
-                gl={{ antialias: true, powerPreference: "high-performance", alpha: true }}
+        <div className="w-full h-full flex items-center justify-center p-4 relative select-none pointer-events-none">
+            {/* Ambient Background Glow matching the blue gradient theme */}
+            <div className="absolute w-[280px] h-[280px] xs:w-[350px] xs:h-[350px] md:w-[500px] md:h-[500px] bg-sky-500/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen animate-pulse"></div>
+
+            <motion.div
+                ref={cardRef}
+                style={{ 
+                    rotateX, 
+                    rotateY, 
+                    transformStyle: "preserve-3d",
+                    perspective: 1000
+                }}
+                animate={{
+                    y: [0, -15, 0],
+                }}
+                transition={{
+                    y: {
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }
+                }}
+                className="relative w-full max-w-[300px] xs:max-w-[340px] sm:max-w-[380px] md:max-w-[420px] aspect-[3/4] z-10 pointer-events-auto"
             >
-                <ambientLight intensity={1} />
-                <pointLight position={[10, 10, 10]} intensity={1.5} />
-                <pointLight position={[-10, -10, -10]} intensity={1.5} color="#0ea5e9" />
-                <HeroScene />
-            </Canvas>
+                {/* Outermost premium colored drop shadow aura */}
+                <div className="absolute inset-4 bg-sky-500/35 blur-3xl rounded-[2.5rem] opacity-50 mix-blend-screen -z-20"></div>
+
+                {/* Glowing border outline */}
+                <div className="absolute inset-[-2px] bg-gradient-to-br from-sky-400/40 via-transparent to-indigo-500/40 rounded-[2.6rem] -z-10"></div>
+
+                {/* 3D Content Container */}
+                <div 
+                    className="w-full h-full rounded-[2.5rem] overflow-hidden glass-panel border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.8)] bg-black/30 backdrop-blur-md relative flex items-center justify-center"
+                    style={{ transform: "translateZ(40px)" }}
+                >
+                    <img 
+                        src={aseemSuitHd} 
+                        alt="Aseem Aslah Portrait" 
+                        className="w-full h-full object-cover scale-[1.03] select-none pointer-events-none"
+                    />
+
+                    {/* Gradient Overlay Vignette */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-85 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/10 via-transparent to-purple-500/10 opacity-40 pointer-events-none"></div>
+                </div>
+
+                {/* Subtly offset decorative background glass card */}
+                <div 
+                    className="absolute inset-2 bg-white/5 border border-white/10 rounded-[2.2rem] -z-10 pointer-events-none"
+                    style={{ transform: "translateZ(-20px) rotate(2deg)" }}
+                />
+            </motion.div>
         </div>
     );
 }

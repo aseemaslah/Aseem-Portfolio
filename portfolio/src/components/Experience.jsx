@@ -9,16 +9,16 @@ const experiences = [
         description: "Designing and developing robust web applications, ranging from interactive portfolios to full-fledged e-commerce platforms using the MEAN stack and modern React architectures."
     },
     {
-        year: "2025 - 2026",
-        role: "Full Stack Developer Intern",
+        year: "July 2025 - Feb 2026",
+        role: "MEAN Stack Developer Intern",
         company: "Aeth Analytica Pvt.Ltd",
-        description: "Authored pixel-perfect, highly performant user interfaces. Integrated complex animations and state management solutions resolving performance bottlenecks."
+        description: "Developed and maintained full-stack web applications. Built responsive UI components in Angular, designed Express REST APIs, optimized MongoDB queries, and resolved over 100 production issues in active sprints."
     },
     {
         year: "2022 - 2025",
-        role: "Bachelor of Computer Application",
-        company: "University of Calicut",
-        description: "Built foundational knowledge in algorithms, data structures, and software engineering principles. Graduated with honors, focusing on web technologies."
+        role: "Bachelor of Computer Applications",
+        company: "Silver Arts & Science College, Perambra",
+        description: "Acquired fundamental training in data structures, database design, and software engineering. Created full-stack web applications and earned a Bachelor of Computer Applications (BCA) degree."
     }
 ];
 

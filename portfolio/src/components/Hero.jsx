@@ -55,24 +55,17 @@ const Hero = () => {
 
             <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none bg-[url('/noise.svg')] mix-blend-overlay"></div>
 
-            {/* World-Class 3D Background Layer */}
-            <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <div className="absolute top-1/2 -translate-y-1/2 left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0 md:right-[0%] lg:right-[5%] w-[100vw] lg:w-[60vw] h-[100vh] pointer-events-none opacity-60 md:opacity-90 transform-gpu overflow-hidden">
-                    <Hero3D />
-                </div>
-            </div>
-
-            <div className="container mx-auto px-4 sm:px-8 z-10 relative">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="container mx-auto px-4 sm:px-8 z-10 relative mt-12 lg:mt-0">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                     <motion.div
                         style={{ y: yText, opacity: opacityText }}
-                        className="lg:col-span-8 flex flex-col justify-center translate-y-[-5%] pointer-events-auto z-20"
+                        className="lg:col-span-7 flex flex-col justify-center translate-y-[-2%] pointer-events-auto z-20"
                     >
                         <motion.h1
                             variants={titleVariants}
                             initial="hidden"
                             animate="visible"
-                            className="text-[17vw] xs:text-[16vw] sm:text-[14vw] md:text-[9.5rem] lg:text-[12rem] font-black tracking-tighter leading-[0.85] mb-8 flex flex-col perspective-1000 z-10 pointer-events-none"
+                            className="text-[17vw] xs:text-[16vw] sm:text-[14vw] md:text-[9.5rem] lg:text-[8rem] xl:text-[9rem] font-black tracking-tighter leading-[0.85] mb-8 flex flex-col perspective-1000 z-10 pointer-events-none"
                         >
                             <div className="flex overflow-hidden pb-4">
                                 {nameStr.split('').map((char, index) => (
@@ -81,7 +74,7 @@ const Hero = () => {
                                     </motion.span>
                                 ))}
                             </div>
-                            <div className="flex overflow-hidden pb-4 -mt-2 sm:-mt-4 lg:-mt-8">
+                            <div className="flex overflow-hidden pb-4 -mt-2 sm:-mt-4 lg:-mt-6">
                                 {surnameStr.split('').map((char, index) => (
                                     <motion.span key={`sur-${index}`} variants={letterVariants} className="inline-block origin-bottom transform-gpu text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-indigo-500 to-purple-600 hover:scale-[1.05] hover:-translate-y-2 hover:-rotate-3 transition-transform duration-300 animate-glow pointer-events-auto">
                                         {char}
@@ -94,18 +87,29 @@ const Hero = () => {
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
-                            className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12 mb-12 sm:mb-16 z-20 pointer-events-auto"
+                            className="flex flex-col xl:flex-row items-start xl:items-center gap-6 xl:gap-10 mb-12 sm:mb-16 z-20 pointer-events-auto w-full"
                         >
-                            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-300 font-light max-w-lg leading-relaxed border-l-[3px] border-sky-500 pl-4 sm:pl-6 rounded-sm backdrop-blur-sm bg-white/5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] pointer-events-none">
+                            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-gray-300 font-light max-w-lg leading-relaxed border-l-[3px] border-sky-500 pl-4 sm:pl-6 rounded-sm backdrop-blur-sm bg-white/5 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)] pointer-events-none xl:mr-4">
                                 Architecting <b className="text-white font-medium">world-class digital experiences</b> with mathematics, motion, and modern web technologies.
                             </p>
 
-                            <Magnetic multiplier={0.2}>
-                                <a href="#projects" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-sky-500/20 border border-white/20 hover:border-sky-400 px-8 sm:px-10 py-4 sm:py-5 rounded-full transition-all duration-500 backdrop-blur-md shadow-[0_0_30px_rgba(14,165,233,0.2)] hover:shadow-[0_0_50px_rgba(14,165,233,0.4)] pointer-events-auto lg:cursor-none active:scale-95">
-                                    <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-white group-hover:text-sky-300 transition-colors uppercase">Explore Work</span>
-                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 group-hover:text-sky-300 transition-all duration-300" />
-                                </a>
-                            </Magnetic>
+                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">
+                                <Magnetic multiplier={0.2}>
+                                    <a href="#projects" className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-sky-500/20 border border-white/20 hover:border-sky-400 px-8 sm:px-10 py-4 sm:py-5 rounded-full transition-all duration-500 backdrop-blur-md shadow-[0_0_30px_rgba(14,165,233,0.2)] hover:shadow-[0_0_50px_rgba(14,165,233,0.4)] pointer-events-auto lg:cursor-none active:scale-95 whitespace-nowrap">
+                                        <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-white group-hover:text-sky-300 transition-colors uppercase">Explore Work</span>
+                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 group-hover:text-sky-300 transition-all duration-300" />
+                                    </a>
+                                </Magnetic>
+
+                                <Magnetic multiplier={0.2}>
+                                    <a href="/Aseem_Aslah_Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 border border-transparent px-8 sm:px-10 py-4 sm:py-5 rounded-full transition-all duration-500 shadow-[0_0_35px_rgba(14,165,233,0.3)] hover:shadow-[0_0_55px_rgba(14,165,233,0.6)] pointer-events-auto lg:cursor-none active:scale-95 whitespace-nowrap">
+                                        <span className="text-xs sm:text-sm font-bold tracking-[0.25em] text-white transition-colors uppercase">Get Resume</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                        </svg>
+                                    </a>
+                                </Magnetic>
+                            </div>
                         </motion.div>
 
                         <motion.div
@@ -128,6 +132,14 @@ const Hero = () => {
                                 <a href="https://wa.me/919037432518" target="_blank" rel="noopener noreferrer" className="p-4 glass-panel rounded-full text-gray-400 hover:text-[#25D366] hover:border-[#25D366]/60 transition-all duration-300 shadow-lg group pointer-events-auto lg:cursor-none"><SiWhatsapp size={20} className="group-hover:scale-110 transition-transform" /></a>
                             </Magnetic>
                         </motion.div>
+                    </motion.div>
+
+                    {/* Right Column - Portrait image */}
+                    <motion.div
+                        style={{ y: yText, opacity: opacityText }}
+                        className="lg:col-span-5 flex items-center justify-center pointer-events-auto z-10 w-full mt-12 lg:mt-0"
+                    >
+                        <Hero3D />
                     </motion.div>
                 </div>
             </div>
